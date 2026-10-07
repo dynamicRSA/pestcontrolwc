@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="favGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#15803d" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <linearGradient id="favAccent" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#84cc16" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="14" fill="url(#favGrad)" />
+
+  <!-- Shield Base -->
+  <path d="M32 8 C44 8, 54 12, 54 12 C54 36, 44 50, 32 58 C20 50, 10 36, 10 12 C10 12, 20 8, 32 8 Z" 
+        fill="#064e3b" opacity="0.4" />
+
+  <!-- P Letter -->
+  <path d="M22 18 L34 18 C39 18, 43 21, 43 26 C43 31, 39 34, 34 34 L28 34 L28 44 L22 44 Z" 
+        fill="#ffffff" />
+  <path d="M28 23 L33 23 C35 23, 37 24, 37 26 C37 28, 35 29, 33 29 L28 29 Z" 
+        fill="#047857" />
+
+  <!-- C dynamic arc -->
+  <path d="M42 24 C45 26, 48 29, 48 34 C48 41, 41 47, 32 47 C25 47, 20 43, 18 38 L23 36 C24 39, 28 42, 32 42 C38 42, 42 38, 42 34 C42 31, 40 29, 38 27 Z" 
+        fill="url(#favAccent)" />
+  
+  <circle cx="32" cy="13" r="2" fill="#84cc16" />
+</svg>
