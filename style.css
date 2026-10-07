@@ -1077,117 +1077,62 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   WEST COAST COVERAGE (Interactive Towns Finder)
+   WEST COAST COVERAGE (Clean & Compact Footprint Bar)
    ========================================================================== */
-.coverage-box {
-  background: #ffffff;
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--dark-200);
-  box-shadow: var(--shadow-lg);
-  padding: 2.5rem;
+.section-coverage-compact {
+  padding: 1.5rem 0 3.5rem;
+  background-color: var(--dark-50);
 }
 
-.coverage-search-bar {
+.coverage-bar-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--dark-200);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem 2rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  background: var(--dark-50);
-  border: 1px solid var(--dark-200);
-  border-radius: var(--radius-lg);
-  padding: 0.75rem 1.25rem;
-  margin-bottom: 2rem;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.coverage-search-bar svg {
-  width: 20px;
-  height: 20px;
-  stroke: var(--dark-400);
+.coverage-bar-info {
+  flex: 1;
+  min-width: 280px;
+}
+
+.coverage-bar-label {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.775rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--primary-700);
+  margin-bottom: 0.35rem;
+}
+
+.coverage-bar-text {
+  font-size: 0.95rem;
+  color: var(--dark-700);
+  line-height: 1.5;
+}
+
+.coverage-bar-text strong {
+  color: var(--dark-900);
+}
+
+.coverage-bar-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   flex-shrink: 0;
 }
 
-.coverage-search-input {
-  width: 100%;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  color: var(--dark-900);
-}
-
-.coverage-search-input::placeholder {
-  color: var(--dark-400);
-}
-
-.coverage-regions-filter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-.region-btn {
-  padding: 0.4rem 0.9rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--dark-200);
-  background: #ffffff;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  color: var(--dark-600);
-}
-
-.region-btn:hover,
-.region-btn.active {
-  background: var(--primary-700);
-  color: #ffffff;
-  border-color: var(--primary-700);
-}
-
-.towns-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
-  max-height: 380px;
-  overflow-y: auto;
-  padding-right: 0.5rem;
-}
-
-.town-card {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding: 0.85rem 1rem;
-  background: var(--dark-50);
-  border: 1px solid var(--dark-200);
-  border-radius: var(--radius-md);
-  transition: all var(--transition-fast);
-}
-
-.town-card:hover {
-  background: #ffffff;
-  border-color: var(--primary-500);
-  box-shadow: var(--shadow-sm);
-  transform: translateY(-2px);
-}
-
-.town-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--primary-500);
-}
-
-.town-card strong {
-  font-size: 0.875rem;
-  color: var(--dark-900);
-}
-
-.town-badge {
-  font-size: 0.675rem;
-  color: var(--primary-700);
-  font-weight: 700;
-  margin-left: auto;
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
 }
 
 /* ==========================================================================

@@ -56,42 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── 4. COVERAGE TOWNS SEARCH & FILTER ──
-  const searchInput = document.getElementById('coverage-search');
-  const regionButtons = document.querySelectorAll('.region-btn');
-  const townCards = document.querySelectorAll('.town-card');
 
-  function filterTowns() {
-    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
-    const activeRegionBtn = document.querySelector('.region-btn.active');
-    const regionFilter = activeRegionBtn ? activeRegionBtn.getAttribute('data-region') : 'all';
-
-    townCards.forEach(card => {
-      const townName = card.querySelector('strong').textContent.toLowerCase();
-      const townRegion = card.getAttribute('data-region') || '';
-
-      const matchesSearch = query === '' || townName.includes(query);
-      const matchesRegion = regionFilter === 'all' || townRegion === regionFilter;
-
-      if (matchesSearch && matchesRegion) {
-        card.style.display = 'flex';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
-
-  if (searchInput) {
-    searchInput.addEventListener('input', filterTowns);
-  }
-
-  regionButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      regionButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      filterTowns();
-    });
-  });
 
   // ── 5. FAQ ACCORDION ──
   const faqItems = document.querySelectorAll('.faq-item');
