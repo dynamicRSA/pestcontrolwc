@@ -1645,6 +1645,159 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
+   THREE CRUCIAL PILLARS
+   ========================================================================== */
+.section-pillars {
+  padding: 4.5rem 0 2rem;
+  background: linear-gradient(180deg, var(--white) 0%, rgba(240, 253, 244, 0.45) 100%);
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.pillar-card {
+  background: var(--white);
+  border: 1px solid rgba(22, 163, 74, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 1.75rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #15803d, #84cc16);
+}
+
+.pillar-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(22, 163, 74, 0.12);
+  border-color: rgba(22, 163, 74, 0.35);
+}
+
+.pillar-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(22, 163, 74, 0.1);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.pillar-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.pillar-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--dark-900);
+  margin-bottom: 0.75rem;
+}
+
+.pillar-card p {
+  color: var(--dark-600);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   TESTIMONIALS SECTION
+   ========================================================================== */
+.section-testimonials {
+  padding: 5.5rem 0;
+  background-color: var(--dark-950);
+  color: #f8fafc;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+  margin-top: 3rem;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(132, 204, 22, 0.4);
+}
+
+.testimonial-stars {
+  color: #facc15;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+.testimonial-quote {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: #e2e8f0;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.testimonial-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #15803d, #84cc16);
+  color: white;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.testimonial-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+.testimonial-meta {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* ==========================================================================
    RESPONSIVE DESIGN (Tablets & Mobile)
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -1889,6 +2042,26 @@ button, input, select, textarea {
 
   .section-subtitle {
     font-size: 0.95rem;
+  }
+
+  /* Pillars Mobile */
+  .section-pillars {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  /* Testimonials Mobile */
+  .section-testimonials {
+    padding: 3.5rem 0;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
   /* Services Tabs (Native Horizontal Scrollable Pill Bar) */
