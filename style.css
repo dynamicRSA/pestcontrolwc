@@ -1571,6 +1571,71 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
+   MOBILE STICKY ACTION BAR (Phone Screens)
+   ========================================================================== */
+.mobile-sticky-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 998;
+  background: rgba(15, 23, 42, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.5rem 0.75rem max(0.5rem, env(safe-area-inset-bottom));
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.mobile-bar-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  padding: 0.45rem 0.25rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.mobile-bar-call {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.mobile-bar-call svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--accent-400);
+}
+
+.mobile-bar-whatsapp {
+  background: #25d366;
+  color: #ffffff;
+}
+
+.mobile-bar-whatsapp svg {
+  width: 20px;
+  height: 20px;
+}
+
+.mobile-bar-quote {
+  background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%);
+  color: #ffffff;
+}
+
+.mobile-bar-quote svg {
+  width: 20px;
+  height: 20px;
+  stroke: #ffffff;
+}
+
+/* ==========================================================================
    RESPONSIVE DESIGN (Tablets & Mobile)
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -1625,9 +1690,57 @@ button, input, select, textarea {
 }
 
 @media (max-width: 768px) {
+  /* Prevent background scroll when menu is active */
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  body {
+    padding-bottom: 74px; /* Clearance for sticky mobile bottom bar */
+  }
+
+  .mobile-sticky-bar {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr 1fr;
+    gap: 0.5rem;
+  }
+
+  /* Hide floating desktop WhatsApp button to avoid overlapping the bottom bar */
+  .whatsapp-float {
+    display: none !important;
+  }
+
+  /* Top Bar */
+  .topbar {
+    padding: 0.4rem 0;
+    font-size: 0.75rem;
+  }
+
   .topbar-inner {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    gap: 0.35rem;
+  }
+
+  .topbar-left {
+    justify-content: center;
+    font-size: 0.74rem;
+  }
+
+  .topbar-right {
+    display: flex;
+    justify-content: center;
+    gap: 0.9rem;
+  }
+
+  /* Header */
+  .header-inner {
+    height: 64px;
+  }
+
+  .logo-img {
+    height: 40px;
   }
 
   .nav-menu, .header-actions {
@@ -1635,66 +1748,363 @@ button, input, select, textarea {
   }
 
   .hamburger {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    color: var(--dark-900);
+  }
+
+  /* Full Screen Mobile Drawer with Smooth Transition */
+  .mobile-nav {
+    top: 64px;
+    padding: 1.5rem 1.25rem 3rem;
+    gap: 0.5rem;
+    background: #ffffff;
+    box-shadow: var(--shadow-xl);
+  }
+
+  .mobile-nav .nav-link {
+    font-size: 1.1rem;
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid var(--dark-100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mobile-nav .nav-link::after {
+    display: none;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 2rem 0 2.5rem;
+  }
+
+  .hero-tag {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+    margin-bottom: 1rem;
   }
 
   .hero-title {
-    font-size: 2.35rem;
+    font-size: 2.15rem;
+    line-height: 1.18;
+    margin-bottom: 1rem;
+  }
+
+  .hero-desc {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.25rem;
+    font-size: 1rem;
   }
 
   .hero-trust-badges {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.75rem;
+    padding-top: 1.25rem;
+  }
+
+  .trust-item {
+    padding: 0.4rem 0;
+  }
+
+  /* Hero Visual */
+  .hero-visual {
+    margin-top: 1rem;
+    max-width: 100%;
+  }
+
+  .hero-image-wrapper {
+    border-radius: var(--radius-lg);
+    border-width: 3px;
+  }
+
+  .hero-image-wrapper img {
+    height: 250px;
+    object-position: center 65%;
   }
 
   .floating-card-termite {
-    left: 10px;
-    bottom: 10px;
-    max-width: 240px;
-    padding: 0.75rem;
+    position: static;
+    margin-top: 0.85rem;
+    max-width: 100%;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--dark-200);
+    padding: 0.75rem 1rem;
   }
 
   .floating-badge-guarantee {
-    right: 10px;
-    top: 10px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: var(--radius-md);
+  }
+
+  /* Section Commons */
+  .section {
+    padding: 3.25rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 2.25rem;
   }
 
   .section-title {
-    font-size: 1.95rem;
+    font-size: 1.85rem;
+    line-height: 1.22;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  /* Services Tabs (Native Horizontal Scrollable Pill Bar) */
+  .services-tabs-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 0.5rem;
+    padding: 0.25rem 0 0.85rem;
+    margin-bottom: 1.5rem;
+    scrollbar-width: none;
+  }
+
+  .services-tabs-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab-btn {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    white-space: nowrap;
+    font-size: 0.84rem;
+    padding: 0.55rem 1rem;
+  }
+
+  .service-card-hero {
+    grid-template-columns: 1fr;
+    border-radius: var(--radius-lg);
+  }
+
+  .service-card-content {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .service-title {
+    font-size: 1.45rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-lead {
+    font-size: 0.92rem;
+    margin-bottom: 1.25rem;
   }
 
   .service-features-list {
     grid-template-columns: 1fr;
+    gap: 0.65rem;
+    margin-bottom: 1.5rem;
   }
 
-  .why-grid, .services-mini-grid {
+  .service-cta-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  .service-cta-row .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .service-card-media {
+    min-height: 200px;
+    max-height: 240px;
+    order: -1; /* Display photo at top on mobile */
+  }
+
+  .services-mini-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .mini-card {
+    padding: 1.25rem;
+  }
+
+  /* Termite Section */
+  .termite-section {
+    padding: 3.25rem 0;
+  }
+
+  .termite-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .termite-heading {
+    font-size: 1.85rem;
+  }
+
+  .termite-desc {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .termite-img-frame img {
+    height: 240px;
+  }
+
+  .termite-cert-card {
+    position: static;
+    margin-top: 1rem;
+    max-width: 100%;
+    padding: 1rem 1.15rem;
+  }
+
+  /* Why Us */
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .why-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  /* Coverage Bar */
+  .section-coverage-compact {
+    padding: 1rem 0 2.5rem;
+  }
+
+  .coverage-bar-card {
+    padding: 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .coverage-bar-cta {
+    width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .coverage-bar-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Quote Section & Form */
+  .quote-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .quote-info h2 {
+    font-size: 1.85rem;
+  }
+
+  .quote-form-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: var(--radius-lg);
   }
 
   .form-grid-2 {
     grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-options-pills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+  }
+
+  .pill-label {
+    width: 100%;
+    text-align: center;
+    font-size: 0.78rem;
+    padding: 0.5rem 0.25rem;
   }
 
   .form-submit-row {
     grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  /* Prevent automatic iOS zoom on focus */
+  .form-input, .form-select, .form-textarea {
+    font-size: 16px !important;
+  }
+
+  .direct-call-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.25rem;
+  }
+
+  .direct-call-card .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* FAQ */
+  .faq-question {
+    padding: 1rem 1.25rem;
+    font-size: 0.98rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 3rem 0 1.5rem;
   }
 
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.85rem;
   }
 
-  .quote-form-card {
-    padding: 1.75rem;
+  .section-title {
+    font-size: 1.65rem;
   }
 
-  .whatsapp-float span {
-    display: none;
+  .accreditation-badges {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
   }
 
-  .whatsapp-float {
-    padding: 0.9rem;
-    border-radius: 50%;
-    bottom: 20px;
-    right: 20px;
+  .form-options-pills {
+    grid-template-columns: 1fr;
   }
 }
